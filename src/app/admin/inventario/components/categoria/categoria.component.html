@@ -6,10 +6,25 @@
     [(visible)]="visible"
     [modal]="true"
     [breakpoints]="{'1190px': '75vw', '575px': '90vw'}"
-    [style]="{width: '50vw'}"
+    [style]="{width: '30vw'}"
     [draggable]="false"
     [resizable]="false"
     class="p-fluid">
+    <div class="field">
+                    <label for="name">Name</label>
+                    <input type="text" pInputText id="name" [(ngModel)]="product.name" required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !product.name}"/>
+                    <small class="ng-dirty ng-invalid" *ngIf="submitted && !product.name">Name is required.</small>
+                </div>
+
+                <div class="field">
+                    <label for="det">Detalle</label>
+                    <input type="text" pInputText id="det" required/>
+                </div>
+
+                 <ng-template pTemplate="footer">
+                <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+                <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveProduct()"></button>
+            </ng-template>
 <input type="text" pInputText/>
 </p-dialog>
     <p>Contenido del diálogo de categorías</p>
